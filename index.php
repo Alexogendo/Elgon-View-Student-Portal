@@ -138,15 +138,15 @@
             <?php
         }
         ?>
-        <h3 class="form-signin-heading">Student Sign In.</h3><hr />
-        <input type="email" class="input-block-level" placeholder="Email address" name="txtemail" />
-        <input type="password" class="input-block-level" placeholder="Password" name="txtupass" />
+        <h3 class="form-signin-heading">Persuit for Excellence</h3><hr />
+        <!-- <input type="email" class="input-block-level" placeholder="Email address" name="txtemail" />
+        <input type="password" class="input-block-level" placeholder="Password" name="txtupass" /> -->
      <br><br>
-        <button class="btn btn-large btn-primary" type="submit" name="btn-login">Sign in</button>
-        <a href="#" button class="btn btn-large btn-primary" >Register a now</button> </a>  
+         <a href="index2.php" button class="btn btn-large btn-primary" >Sign In</button> </a>  
+        <a href="index2.php" button class="btn btn-large btn-primary" >Register a now</button> </a>  
        <!-- <a href="signup.php" class="btn btn-large">Register As A Volunteer</a><hr />-->
      <br><br>
-        <a href="#" style= "font-weight: bold; color: green">Forgot your Password ? </a>
+        <a href="index2.php" style= "font-weight: bold; color: green">Forgot your Password ? </a>
      </form>
    </div>
  </div> <!-- /container -->
