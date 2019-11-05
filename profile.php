@@ -63,7 +63,7 @@
 		}
 	</script>
 	<header class="cd-main-header">
-		<a href="profile.php" class="cd-logo"><img src="images/logo.png" alt="Logo"></a>
+		<a href="profile.php" class="cd-logo"><img src="images/logo.jpg" alt="Logo"></a>
 		
 		<div class="cd-search is-hidden">
 				<input list="searches" class="search" placeholder="Search..." onkeyup="suggestions()" onchange="searched()">
