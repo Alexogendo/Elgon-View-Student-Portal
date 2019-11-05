@@ -98,7 +98,7 @@
 			<div class="login">
 				<form id="form_signup" name="form_signup" action="signup.php" method="post">
 					<ul class="ul-list">
-						<li><input type="radio" id="student" name="check-type" onchange="check_type()" value="student" checked> Student&emsp;<input type="radio" id="inst" name="check-type" value="institute" onchange="check_type()"> Institute&emsp;<input type="radio" id="comp" name="check-type" value="company" onchange="check_type()"> Company</li>
+						<li><input type="radio" id="student" name="check-type" onchange="check_type()" value="student" checked> Student&emsp;&emsp;<input type="radio" id="comp" name="check-type" value="company" onchange="check_type()"> Tutor</li>
 
 						<li><input type="text" required pattern="^[a-zA-Z ]+$" class="input" id="reg_name" name="reg_name" maxlength="32" placeholder="Student Name"/><span class="icon"><i class="material-icons">account_box</i></span></li>
 
@@ -129,7 +129,7 @@
 								$("input#reg_name span i").text("account_balance");	
 							}
 							else{
-								$("input#reg_name").prop("placeholder","Company Name");
+								$("input#reg_name").prop("placeholder","Tutor Name");
 								$("input#reg_name span i").text("business_center");
 							}
 						}
