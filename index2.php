@@ -199,13 +199,13 @@
 		<p id="text-heading">Elgon View College Student Portal.</p>
 		<div class="welcome-text">
 			
-			<p id="text-context">Elgon View Student Portal is a platform where students can view there school information <br>It allows upload of educational documents<br>by administrators and seen by both students and staff.</p>
+			<p id="text-context">Elgon View Student Portal is a platform where students can view there school information <br>It allows upload of educational documents<br>by administrators which are further seen by both students and staff.</p>
 			<a id="readmore" href="#about">Read More</a>
 		</div> <!-- welcome-text -->
 		</center>
 	</div>	<!-- welcome -->
 
-	<div class="link-container clearfix" style="background-color: blue">
+	<div class="link-container clearfix" style="background-color: #2e86c1">
 		<div class="wrap-width">
 			<!-- <a id="register">Sign Up Now</a> -->
 			<p id="join" style="margin-left: 300px">Join the Elgon View Student - Join us and be a part of the success.</p></center>

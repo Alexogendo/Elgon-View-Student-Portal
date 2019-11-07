@@ -82,23 +82,34 @@
 					<a href="profile.php?user=<?php echo $_SESSION['login_user'];?>">Profile</a>
 				</li>
 
-				<li class="messages">
-					<a href="inbox.php">Messages<span class="count" id="msgcount"></span></a>
+				<li class="">
+					<a href="inbox.php">Academic Details</span></a>
+				</li>
+				<li class="has-children documents">
+					<a href="inbox.php">Time Table</a>
 				</li>
 
-				<li class="documents active">
-					<a href="documents.php">Documents</a>
+				<li class="has-children documents">
+					<a href="documents.php">Semester Results</a>
 				</li>
 
 			</ul>
 
 			<ul>
-				<li class="cd-label">Secondary</li>
+				<li class="cd-label">Other Info.</li>
 				
 				<li class="jobs">
-					<a href="jobs.php">Jobs</a>
+					<a href="jobs.php">Transcripts</a>
 				</li>
-
+				<li class="jobs">
+					<a href="jobs.php">Unit Registration</a>
+				</li>
+				<li class="jobs">
+					<a href="jobs.php">End Year Results</a>
+				</li>
+				<li class="jobs">
+					<a href="jobs.php">College Newsletters</a>
+				</li>
 				<li class="settings">
 					<a href="settings.php">Settings</a>
 				</li>
@@ -106,9 +117,8 @@
 
 			<ul>
 				<li class="cd-label">Action</li>
-				<li class="action-btn"><a href="#">Report Bug</a></li>
-			</ul>
-			<br/><br/>
+				<li class="action-btn"><a href="#">Give Feedback</a></li>
+			</ul><br/><br/>
 			<ul>
 				<center>
 				<iframe width="100px" height="60px" scrolling="no" src="clock.html"></iframe>

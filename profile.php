@@ -148,7 +148,7 @@
 		<div class="content-wrapper">
 			<div class="profile-container">
 				<div class="info-box">
-					<img id="pro-timeline" src="images/pro-timeline.jpg"></img>
+					<img id="pro-timeline" src="css/girl.jpg"></img>
 					<div class="pro-title">
 	            		<center><img class="profile-image" src="<?php echo $dp; ?>">
 	            		 <p id="pro-name"><?php echo $fullname; ?></p>
@@ -160,7 +160,7 @@
 	            	</div>
                 </div>
 	            <div class="pro-education student">
-    	        	<h1 class="heading">Education<button id="add-edu" class="add-button remove">+ Add New</button></h1>
+    	        	<h1 class="heading" style="background-color: #2e86c1">Education<button id="add-edu" class="add-button remove">+ Add New</button></h1>
     	        	<div class="pro-education-body pro-body">
     	        	<center>
 	            	    <form id="form-edu" hidden="" class="remove" action="update-profile.php">
@@ -261,7 +261,7 @@
 	            	</div>    
 	            </div>
 	            <div class="pro-skill student">
-	            	<h1 class="heading">Skills<button id="add-ski" class="add-button remove">+ Add New</button></h1>
+	            	<h1 class="heading" style="background-color: #2e86c1">Skills<button id="add-ski" class="add-button remove">+ Add New</button></h1>
 	            	<div class="pro-skill-body pro-body">	
 		                <center><form id="form-ski" hidden="" class="remove" action="update-profile.php">
 		                	<input type="text" id="skill" name="skill" required="" placeholder="Skill (ex: Data Analysis)" ><br><br/>
@@ -293,7 +293,7 @@
     	            </div>
     	        </div>
     	        <div class="pro-interest student">
-    	        	<h1 class="heading">Interests<button id="add-int" class="add-button remove">+ Add New</button></h1>
+    	        	<h1 class="heading" style="background-color: #2e86c1">Interests<button id="add-int" class="add-button remove">+ Add New</button></h1>
     	        	<div class="pro-interest-body pro-body">
     		            <center><form id="form-int" hidden="" class="remove" action="update-profile.php">
     	    	        	<input type="text" id="interest" name="interest" required="" placeholder="Interest (ex: Reading)" ><br><br/>

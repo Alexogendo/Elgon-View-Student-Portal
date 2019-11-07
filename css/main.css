@@ -187,7 +187,7 @@ span#loading{
 	font-family: calibri;
 	font-size: 20px;
 	font-weight: bolder;
-	background-color: #565656;
+	background-color: #2e86c1;
   	color: transparent;
   	text-shadow: 0px 2px 3px rgba(255,255,255,0.5);
     -webkit-background-clip: text;
@@ -243,7 +243,7 @@ span#loading{
 
 .register-user a#login {	
 	margin-right: 10px;
-  	background:url('../images/btn-login.png') no-repeat 7px 6px #484B4F;
+  	background:url('../images/btn-login.png') no-repeat 7px 6px rgb(57, 115, 190);
   	width: 75px;
   	margin-left: 40px;
 }
@@ -258,7 +258,7 @@ span#loading{
 
 .register-user a#register {
 	margin-right: 30px;
-  	background:url('../images/register.png') no-repeat 6px 6px #F48B35;
+  	background:url('../images/register.png') no-repeat 6px 6px maroon;
   	width: 90px;
 }
 
@@ -306,6 +306,7 @@ img:hover {
 	align-content: center;
 	text-align: center;
 	max-width: 1600px;
+	background-color: #4ebcfc;
 }
 
 .clearfix::after {		/* clearfix hack */
