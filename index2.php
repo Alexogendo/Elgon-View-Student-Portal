@@ -83,7 +83,7 @@
 
 						<li><input type="submit" id="submit" name="submit" value="Sign in" class="btn"></li>
 
-						<li><input type="button" value="Sign in with Facebook" class="btn fb" onclick="login()"></li>
+						<!-- <li><input type="button" value="Sign in with Facebook" class="btn fb" onclick="login()"></li> -->
 
 						<li><input type="button" value="Close" class="btn close"></li>
 
@@ -113,7 +113,7 @@
 
 						<li><input type="submit" id="signup-btn" value="Sign up" class="btn"></li>
 
-						<li><input type="button" value="Contiue using Facebook" class="btn fb" onclick="login()"></li>
+						<!-- <li><input type="button" value="Contiue using Facebook" class="btn fb" onclick="login()"></li> -->
 
 						<li><input type="button" value="Close" class="btn close"></li>
 					</ul>					
