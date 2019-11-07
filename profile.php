@@ -44,6 +44,7 @@
 	<link rel="stylesheet" href="css/profile.css">
 	<script src="js/modernizr.js"></script> <!-- Modernizr -->
 
+
 </head>
 <body onload="check()">
 	<script type="text/javascript">
@@ -95,28 +96,39 @@
 			<ul>
 				<li class="nav-dp"><a class="dp"><img src="<?php echo $_COOKIE['dp_url'];?>"></a></li>
 				<li class="nav-name"><h1>@<?php echo $_COOKIE['user_name'];?></h1></li>
-				<li class="cd-label">Main</li>
+				<li class="cd-label">My Account</li>
 				<li class="profile active">
 					<a href="profile.php?user=<?php echo $_SESSION['login_user'];?>">Profile</a>
 				</li>
 
-				<li class="messages">
-					<a href="inbox.php">Messages<span class="count" id="msgcount"></span></a>
+				<li class="">
+					<a href="inbox.php">Academic Details</span></a>
+				</li>
+				<li class="has-children documents">
+					<a href="inbox.php">Time Table</a>
 				</li>
 
 				<li class="has-children documents">
-					<a href="documents.php">Documents</a>
+					<a href="documents.php">Semester Results</a>
 				</li>
 
 			</ul>
 
 			<ul>
-				<li class="cd-label">Secondary</li>
+				<li class="cd-label">Other Info.</li>
 				
 				<li class="jobs">
-					<a href="jobs.php">Jobs</a>
+					<a href="jobs.php">Transcripts</a>
 				</li>
-
+				<li class="jobs">
+					<a href="jobs.php">Unit Registration</a>
+				</li>
+				<li class="jobs">
+					<a href="jobs.php">End Year Results</a>
+				</li>
+				<li class="jobs">
+					<a href="jobs.php">College Newsletters</a>
+				</li>
 				<li class="settings">
 					<a href="settings.php">Settings</a>
 				</li>
@@ -124,7 +136,7 @@
 
 			<ul>
 				<li class="cd-label">Action</li>
-				<li class="action-btn"><a href="#">Report Bug</a></li>
+				<li class="action-btn"><a href="#">Give Feedback</a></li>
 			</ul><br/><br/>
 			<ul>
 				<center>
