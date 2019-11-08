@@ -44,13 +44,26 @@
 <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css" href="css2/login.css" />
 <title>Elgon View | College management System.</title>
+<style type="text/css">
+	a:hover{
+		color: red;
+	}
+</style>
 </head>
 
 <body>
+
 	<div class="container">
-    	<div class="container2">
+<div style="margin-left: -800px; margin-top: auto;">
+	<a href="index.php" style="float: right; font-size: 18px; text-decoration: underline;">Home</a>
+	<p style="margin-left: 280px; font-size: 20px; color: lightblue"><i>Persuit for Excellence</i></p>
+		<img src="images2/rtupic.jpg" height="400" width="700">
+	</div>
+    	<div class="container2" style="margin-top: -290px;">
+
     		<div class="h1_pos">
-    			<h1>College Login for Staff Only </h1>
+    			
+    			<h1 style="color: blue">College Login for Staff Only!</h1>
     		</div><br><br><br>
     		<form method="post">
                     <input type="text" class="form-control" name="unametxt" placeholder="Username" title="Enter username here" /><br>
@@ -61,10 +74,13 @@
     		</div>
     		</form>
     	</div>
+    	
+	</div>
     </div>
 	
         <h2 style="color: #3a28a5; text-align: center;">
             <?php echo $msg; ?>
-        </h2>    
+        </h2>  
+
 </body>
 </html>
