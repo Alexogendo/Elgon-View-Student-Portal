@@ -181,8 +181,8 @@
 			
 			<ul>	
 				<div class="sliding-out links"><li><a href="index.php">Home</a></li></div>
-				<div class="sliding-out links"><li><a href="#about">About </a></li></div>
-				<div class="sliding-out links"><li><a href="#contact">Contact </a></li></div>
+				<div class="sliding-out links"><li><a href="#about">Contact </a></li></div>
+				<div class="sliding-out links"><li><a href="index3.php">Admin</a></li></div>
 				<div class="last-navbar-link"><li></li></div>
 			</ul>
 			

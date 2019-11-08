@@ -42,22 +42,22 @@
 <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
 <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
-<link rel="stylesheet" type="text/css" href="css/login.css" />
-<title>Rajasthan Technical University | College management System.</title>
+<link rel="stylesheet" type="text/css" href="css2/login.css" />
+<title>Elgon View | College management System.</title>
 </head>
 
 <body>
 	<div class="container">
     	<div class="container2">
     		<div class="h1_pos">
-    			<h1>College authorities for only staff members. </h1>
+    			<h1>College Login for Staff Only </h1>
     		</div><br><br><br>
     		<form method="post">
                     <input type="text" class="form-control" name="unametxt" placeholder="Username" title="Enter username here" /><br>
                     <input type="password" class="form-control" name="pwdtxt" placeholder="Password" title="Enter username here" /><br>
     		<input type="submit" href="#" class="btn btn-default" name="btn_log" value="Sign in" style="float: right;"/>
     		<div class="about_pos">
-                    <a href="AboutManagement.php" style="text-decoration:none; color: silver">About management</a>
+                    <a href="#" style="text-decoration:none; color: silver">About management</a>
     		</div>
     		</form>
     	</div>
