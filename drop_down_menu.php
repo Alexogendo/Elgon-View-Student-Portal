@@ -58,7 +58,7 @@
 				
 				
 				<!--seventh button-->
-				<div class="btn-group">
+				<!-- <div class="btn-group">
   					<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-globe"></span>
 
   					  Location <span class="caret"></span>
@@ -67,10 +67,10 @@
   				  <li><a href="?tag=location_entry">Location Entry</a></li>
   				  <li><a href="?tag=view_location">View Location</a></li>
   				</ul>
-				</div>
+				</div> -->
 				
 				<!--eaigth button-->
-				<div class="btn-group">
+				<!-- <div class="btn-group">
   					<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-align-justify"></span>
   					  Artical <span class="caret"></span>
   					</button>
@@ -78,6 +78,6 @@
   				  <li><a href="?tag=artical_entry">Artical Entry</a></li>
   				  <li><a href="?tag=view_artical">View Artical</a></li>
   				</ul>
-				</div>
+				</div> -->
 				     
                                

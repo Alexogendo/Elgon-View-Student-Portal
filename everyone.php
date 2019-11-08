@@ -10,7 +10,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
-<title>Welcome to College Management system</title>
+<title>Welcome to Elgon View College Management system</title>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="jquery-1.11.0.js"></script>
 <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css"/>
@@ -18,7 +18,7 @@
 <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-theme.css"/>
 <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-theme.min.css"/>
 <script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
-<link rel="stylesheet" type="text/css" href="css/home.css" />
+<link rel="stylesheet" type="text/css" href="css2/home.css" />
 </head>
 
 <body>
@@ -28,7 +28,7 @@
     </div>
     
     <div class="img_home_pos">
-        <a href="everyone.php"><img src="images/img21.jpg" height="90" alt="Projectworlds technical university" /></a><span class="header_pos">Projectworlds Technical University</span>
+        <a href="everyone.php"><img src="images2/img21.jpg" height="90" alt="Elgon View College" /></a><span class="header_pos" style="color: #fff; font-style: bold">Elgon View College Information System</span>
     </div><br>
                         
                         <div class="dropdownmenu_container">
@@ -94,7 +94,7 @@
 	</div>
         
         <div class="bottom_pos">
-            <a href="AboutManagement.php" style="text-decoration: none;">About management</a>
+            <a href="#" style="text-decoration: none;">About management</a>
         </div>
 </body>
 </html>

@@ -11,19 +11,19 @@
   		<div class="panel-heading"><h1>College Management System</h1></div>
                 <div class="panel-body"><br><br>
         <div>
-            <img src="images/rtupic.jpg" width="855" style="text-align: center;" height="308" onmousedown="return false;"  />
+            <img src="images2/rtupic.jpg" width="855" style="text-align: center;" height="308" onmousedown="return false;"  />
         </div><br><br>
         <div class="middle_text">
-            <p><strong>Rajasthan Technical University (RTU) is an affiliating university located in Kota in the state of Rajasthan, India. The university was established in 2006.</strong></p>
+            <p><strong>Established in 1978 and located in Eldoret ,UasinGishuCounty,Kenya.</strong></p>
         </div>
                 
         <div class="text_para_home">
-            <p>RTU is an affiliating university. Its affiliated colleges offer the degrees of Bachelor of Technology (B.Tech), Master of Technology (M.Tech), Master of Business Administration (MBA), Master of Computer Applications (MCA) and Bachelor of Hotel Management and Catering Technology (BHMCT).
-As of April 2011, RTU affiliates 202 colleges. B.Tech degrees are offered at nine government aided institutes and 109 are private ones. MBA degrees are offered at seven government aided institutes and 122 are private ones. MCA degrees are offered in at seven government aided institutes and 25 are private ones. M.Tech is offered in 24 colleges and BHMCT in four colleges. In addition, two colleges offer Bachelor of Architecture (B.Arch) degrees. Rajasthan University Publishes Courses Results Semester wise.</p>         
+            <p>
+
+Elgon View College was established in 1978 and located in Eldoret ,UasinGishuCounty,Kenya. The Institution has since grown in stature and size. The College started out as a School for Secretarial studies with a student population of 250 students. It has since produced more graduates and boasts of a student population of over 2000 students. The number of Courses offered has since grown to over 80 in the main campus. Since there has been an inception of four other campuses within the Western Kenya region.( Elgon View College- Kisii campus, Nyamira Campus, Migori Campus and Kapenguria Campus)</p>         
         </div>   
                 </div>
         </div>
-    
-    
+   
 </body>
 </html>

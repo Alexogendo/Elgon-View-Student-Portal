@@ -93,10 +93,10 @@ if($sql_update==true)
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<link rel="stylesheet" type="text/css" href="css/style_entry.css" />
+<link rel="stylesheet" type="text/css" href="css2/style_entry.css" />
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
 <title>Welcome to College Management system</title>
-<link rel="stylesheet" type="text/css" href="css/style_entry.css" />
+<link rel="stylesheet" type="text/css" href="css2/style_entry.css" />
 </head>
 
 <body>

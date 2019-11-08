@@ -32,7 +32,7 @@ if(isset($_GET['rs_id']))
 <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css"/>
 <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-theme.css"/>
 <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-theme.min.css"/>
-<link rel="stylesheet" type="text/css" href="css/style_view.css" />
+<link rel="stylesheet" type="text/css" href="css2/style_view.css" />
 </head>
 
 <body>

@@ -56,8 +56,8 @@ if(isset($_POST['btn_upd'])){
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Untitled Document</title>
-<link rel="stylesheet" type="text/css" href="css/style_entry.css" />
+<title>Admin Elgon View College</title>
+<link rel="stylesheet" type="text/css" href="css2/style_entry.css" />
 </head>
 
 <body>

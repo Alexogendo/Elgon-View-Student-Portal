@@ -5,7 +5,7 @@
   				</button>
   				<ul class="dropdown-menu" role="menu">
    				 <li><a href="#">English</a></li>
-   				 <li><a href="#">Hindi</a></li>
+   				 <li><a href="#">Kiswahili</a></li>
    				 <li class="divider">Current language</li>
                                  <li><a href="#"><strong>Selected: </strong>English</</a></li>
   				</ul>
