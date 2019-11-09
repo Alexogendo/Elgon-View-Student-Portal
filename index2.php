@@ -98,8 +98,7 @@
 			<div class="login">
 				<form id="form_signup" name="form_signup" action="signup.php" method="post">
 					<ul class="ul-list">
-						<li><input type="radio" id="student" name="check-type" onchange="check_type()" value="student" checked> Student&emsp;&emsp;<input type="radio" id="comp" name="check-type" value="company" onchange="check_type()"> Tutor</li>
-
+						<li><input type="radio" id="student" name="check-type" onchange="check_type()" value="student" checked> Student
 						<li><input type="text" required pattern="^[a-zA-Z ]+$" class="input" id="reg_name" name="reg_name" maxlength="32" placeholder="Student Name"/><span class="icon"><i class="material-icons">account_box</i></span></li>
 
 						<li><input type="text" required class="input" id="reg_uname" name="reg_uname" pattern="^[a-z\d\.]{5,}$" placeholder="User Name" onchange="check_user()"/><span class="icon"><i class="material-icons">person</i></span></li>
