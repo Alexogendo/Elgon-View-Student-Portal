@@ -9,7 +9,7 @@
 		$pwd=$_POST['pwdtxt'];
 		
 		$sql=mysql_query("SELECT * FROM users_tbl
-								WHERE username='$uname' AND password='$pwd' 
+								WHERE username='$uname' AND password='$pwd' AND role='admin'
 								
 							");
 						
@@ -17,7 +17,7 @@
 			if($cout>0){
 				$row=mysql_fetch_array($sql);
 					if($row['type']=='admin')
-						$msg="Login trov hery!.....";	
+						$msg="Logged in successfully!.....";	
 					else
 						header("location: everyone.php");
 					
@@ -66,8 +66,8 @@
     			<h1 style="color: blue">College Login for Staff Only!</h1>
     		</div><br><br><br>
     		<form method="post">
-                    <input type="text" class="form-control" name="unametxt" placeholder="Username" title="Enter username here" /><br>
-                    <input type="password" class="form-control" name="pwdtxt" placeholder="Password" title="Enter username here" /><br>
+                    <input type="text" class="form-control" name="unametxt" placeholder="Username" title="Enter username here" autocomplete="off" required="" /><br>
+                    <input type="password" class="form-control" name="pwdtxt" placeholder="Password" title="Enter username here" autocomplete="off" required="" /><br>
     		<input type="submit" href="#" class="btn btn-default" name="btn_log" value="Sign in" style="float: right;"/>
     		<div class="about_pos">
                     <a href="#" style="text-decoration:none; color: silver">About management</a>
