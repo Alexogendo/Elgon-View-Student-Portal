@@ -165,9 +165,9 @@
     	        	<center>
 	            	    <form id="form-edu" hidden="" class="remove" action="update-profile.php">
 	            	   		<select id="institute" name="institute" onchange="fill_degree()">
-	            	   			<option value="select-inst">Select Department</option>
+	            	   			<option value="select-inst">Select Institute</option>
 	            	   			<?php
-	            	   				$query = "select distinct faculties_name from facuties_tbl";
+	            	   				$query = "select * from user where user_type='institute'";
 	            	   				$table = mysqli_query($connection,$query);
 									if($table){
 										$rows=mysqli_num_rows($table);
@@ -176,7 +176,7 @@
 				    							$row = mysqli_fetch_assoc($table);
 				    							if ($row){
 								?>		
-													<option value="<?php echo $row['faculties_id']; ?>"><?php echo $row['faculties_name'] ?></option>
+													<option value="<?php echo $row['id']; ?>"><?php echo $row['name'] ?></option>
 								<?php
 												}
 											}
@@ -186,28 +186,18 @@
 	            	   		</select>
 	            	   		<br/>
 	            	   		<select id="degree" name="degree" required="">
-	            	   			<option value="select-deg">Student Course</option>
-	            	   			<?php
-	            	   				$query2 = "select distinct sub_name from sub_tbl";
-	            	   				$table = mysqli_query($connection,$query2);
-									if($table){
-										$rows=mysqli_num_rows($table);
-										if($rows > 0){
-											for($x = 0; $x<= $row; $x++){
-				    							$row = mysqli_fetch_assoc($table);
-				    							if ($row){
-								?>		
-													<option value="<?php echo $row['sub_id']; ?>"><?php echo $row['sub_name'] ?></option>
-								<?php
-												}
-											}
-										}
-									}
-	            	   			?>
+	            	   			<option value="select-deg">Select Degree</option>
+	            	   			<script>
+	            	   				function fill_degree(){
+	            	   					var selected = $("select#institute").val();
+	            	   					$("select#degree").load("degree.php?institute="+selected);
+	            	   					
+	            	   				}
+	            	   			</script>
 	            	   		</select>
 	            	   		<br/>
 	            	    	<select id="from_year" name="from_year">
-	            	    		<option value="year">Start Year</option>
+	            	    		<option value="year">From Year</option>
   								<script>
   									var myDate = new Date();
   									var year = myDate.getFullYear();
@@ -217,7 +207,7 @@
   								</script>
 							</select><br/>
 							<select id="to_year" name="to_year">
-	            	    		<option value="year">End Year (or Expected)</option>
+	            	    		<option value="year">To Year (or Expected)</option>
   								<script>
   									var myDate = new Date();
   									var year = myDate.getFullYear();
@@ -251,11 +241,11 @@
 													echo "<p style='padding-bottom: 10px; font-size:18px; font-weight:bold'>".$inst_column['name']."</p>";
 												}
 
-												$deg_query = "select sub_name from sub_tbl where sub_id = ".$row['sub_id'];
+												$deg_query = "select degree_name from degree where degree_id = ".$row['degree_id'];
 												$deg_table = mysqli_query($connection, $deg_query);
 												if ($deg_table){
 													$deg_column = mysqli_fetch_assoc($deg_table);
-													echo "<p style='padding-bottom: 10px;'>".$deg_column['sub_name']."</p>";
+													echo "<p style='padding-bottom: 10px;'>".$deg_column['degree_name']."</p>";
 												}
 						?>
 												<p style="font-size: 13px;"><span><?php echo $row['from_year']; ?></span> - <span><?php echo $row['to_year']; ?></span></p>
