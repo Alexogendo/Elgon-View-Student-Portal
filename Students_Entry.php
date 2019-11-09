@@ -16,24 +16,30 @@ if(isset($_POST['btn_sub'])){
 	$addr=$_POST['addrtxt'];
 	$phone=$_POST['phonetxt'];
 	$mail=$_POST['emailtxt'];
-	$note=$_POST['notetxt'];	
+	$note='student';	
 
-$sql_ins=mysql_query("INSERT INTO stu_tbl 
+$fullname = $f_name." ".$l_name;
+$pass = 1234;
+$img="images"."/"."dp".".png";
+$sql_ins=mysql_query("INSERT INTO user (f_name,l_name,name,user_name,email_id,password,contact_no,user_type,img_url,gender,dob,pob,address)
 						VALUES(
-							NULL,
 							'$f_name',
 							'$l_name' ,
+							'$fullname',
+							'$mail',
+							'$mail',
+							'$pass',
+							'$phone',
+							'$note',
+							'$img',
 							'$gender',
 							'$dob',
 							'$pob',
-							'$addr',
-							'$phone',
-							'$mail',
-							'$note'
+							'$addr'
 							)
 					");
 if($sql_ins==true)
-	$msg="1 Row Inserted";
+	$msg="Student added to Elgon View College Successfully!!";
 else
 	$msg="Insert Error:".mysql_error();
 	
@@ -50,23 +56,27 @@ if(isset($_POST['btn_upd'])){
 	$mail=$_POST['emailtxt'];
 	$note=$_POST['notetxt'];	
 	
-	$sql_update=mysql_query("UPDATE stu_tbl SET 
+	$sql_update=mysql_query("UPDATE user SET 
 								f_name='$f_name',
 								l_name='$l_name' ,
+								name='$fullname',
+								user_name = '$mail',
+								email_id= '$mail',
+								password = '$pass',
+								contact_no = '$phone',
+								user_type ='$note',
+								img_url = '$img',
 								gender='$gender',
 								dob='$dob',
 								pob='$pob',
-								address='$addr',
-								phone='$phone',
-								email='$mail',
-								note='$note'
+								address='$addr'
 							WHERE
-								stu_id=$id
+								id=$id
 							");
 	if($sql_update=='true')
 		echo "<div style='background-color: white;padding: 20px;border: 1px solid black;margin-bottom: 25px;''>"
                 . "<span class='p_font'>"
-                . "Record Updated Successfully... !"
+                . "Student Record Updated Successfully... !"
                 . "</span>"
                 . "</div>";
 	else
@@ -86,7 +96,7 @@ if(isset($_POST['btn_upd'])){
 
 if($opr=="upd")
 {
-	$sql_upd=mysql_query("SELECT * FROM stu_tbl WHERE stu_id=$id");
+	$sql_upd=mysql_query("SELECT * FROM user WHERE id=$id");
 	$rs_upd=mysql_fetch_array($sql_upd);
 	list($y,$m,$d)=explode('-',$rs_upd['dob']);
 ?>
@@ -97,7 +107,7 @@ if($opr=="upd")
   		<div class="panel-heading"><h1><span class="glyphicon glyphicon-user"></span> Student Entry Form</h1></div>
   			<div class="panel-body">
 			<div class="container">
-				<p style="text-align:center;">Here, you'll update new student's detail to record into database.</p>
+				<p style="text-align:center;">Here, you'll update new student's detail to record into the system.</p>
 			</div>
 
  
@@ -297,9 +307,9 @@ else
 					<input type="text" name="emailtxt" class="form-control" placeholder="Email address" />
 				</div><br>
 				
-				<div class="teacher_note_pos">
+				<!-- <div class="teacher_note_pos">
 					<input type="text" name="notetxt" class="form-control" placeholder="Note" />
-				</div><br>
+				</div><br> -->
 				
 				<div class="teacher_btn_pos">
 					<input type="submit" name="btn_sub" href="#" class="btn btn-primary btn-large" value="Register" />&nbsp;&nbsp;&nbsp;
