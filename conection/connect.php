@@ -1,4 +1,10 @@
 <?php
-mysql_connect("localhost","root", "Alex1234") or die("No Connection");
-mysql_select_db("elgonview") or die("No Database connected!");
+	define('DB_SERVER', 'localhost');
+   	define('DB_USERNAME', 'root');
+   	define('DB_PASSWORD', '');
+   	define('DB_DATABASE', 'elgonview');
+   	$connection = mysqli_connect(DB_SERVER,DB_USERNAME,DB_PASSWORD,DB_DATABASE);
+   	if(!$connection){
+		die("Connection failed: " . mysqli_connect_error());
+   	}
 ?>
