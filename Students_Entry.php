@@ -21,7 +21,7 @@ if(isset($_POST['btn_sub'])){
 $fullname = $f_name." ".$l_name;
 $pass = 1234;
 $img="images"."/"."dp".".png";
-$sql_ins=mysql_query("INSERT INTO user (f_name,l_name,name,user_name,email_id,password,contact_no,user_type,img_url,gender,dob,pob,address)
+$sql_ins="INSERT INTO user (f_name,l_name,name,user_name,email_id,password,contact_no,user_type,img_url,gender,dob,pob,address)
 						VALUES(
 							'$f_name',
 							'$l_name' ,
@@ -32,12 +32,12 @@ $sql_ins=mysql_query("INSERT INTO user (f_name,l_name,name,user_name,email_id,pa
 							'$phone',
 							'$note',
 							'$img',
-							'$gender',
+				'$gender',
 							'$dob',
 							'$pob',
 							'$addr'
 							)
-					");
+					";
 if($sql_ins==true)
 	$msg="Student added to Elgon View College Successfully!!";
 else
@@ -56,7 +56,7 @@ if(isset($_POST['btn_upd'])){
 	$mail=$_POST['emailtxt'];
 	$note=$_POST['notetxt'];	
 	
-	$sql_update=mysql_query("UPDATE user SET 
+	$sql_update="UPDATE user SET 
 								f_name='$f_name',
 								l_name='$l_name' ,
 								name='$fullname',
@@ -72,7 +72,7 @@ if(isset($_POST['btn_upd'])){
 								address='$addr'
 							WHERE
 								id=$id
-							");
+							";
 	if($sql_update=='true')
 		echo "<div style='background-color: white;padding: 20px;border: 1px solid black;margin-bottom: 25px;''>"
                 . "<span class='p_font'>"
@@ -96,7 +96,7 @@ if(isset($_POST['btn_upd'])){
 
 if($opr=="upd")
 {
-	$sql_upd=mysql_query("SELECT * FROM user WHERE id=$id");
+	$sql_upd="SELECT * FROM user WHERE id=$id";
 	$rs_upd=mysql_fetch_array($sql_upd);
 	list($y,$m,$d)=explode('-',$rs_upd['dob']);
 ?>

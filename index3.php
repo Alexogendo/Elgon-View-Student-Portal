@@ -8,21 +8,18 @@
 		$uname=$_POST['unametxt'];
 		$pwd=$_POST['pwdtxt'];
 		
-		$sql=mysql_query("SELECT * FROM users_tbl
-								WHERE username='$uname' AND password='$pwd' AND role='admin'
-								
-							");
-						
-		$cout=mysql_num_rows($sql);
-			if($cout>0){
-				$row=mysql_fetch_array($sql);
+		$sql="SELECT * FROM users_tbl WHERE username='$uname' AND password='$pwd' AND role='admin' ";
+		$result = $connection->query($sql);
+			
+		if ($result->num_rows > 0) {
+			 while($row = $result->fetch_assoc()) {
 					if($row['type']=='admin')
 						$msg="Logged in successfully!.....";	
 					else
 						header("location: everyone.php");
 					
 			}
-			
+			}
 			else
 					$msg="Invalid login authentication, try again!";
 }
