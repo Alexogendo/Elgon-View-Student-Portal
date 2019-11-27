@@ -1,20 +1,22 @@
 -- phpMyAdmin SQL Dump
--- version 4.2.11
--- http://www.phpmyadmin.net
+-- version 4.8.5
+-- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Nov 09, 2019 at 04:00 PM
--- Server version: 5.6.21
--- PHP Version: 5.6.3
+-- Host: 127.0.0.1:3306
+-- Generation Time: Nov 27, 2019 at 08:34 AM
+-- Server version: 5.7.26
+-- PHP Version: 7.2.18
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `elgonview`
@@ -24,15 +26,15 @@ DELIMITER $$
 --
 -- Procedures
 --
-CREATE DEFINER=`root`@`localhost` PROCEDURE `GetAllDegrees`(IN `inst_id` INT(11))
-BEGIN
+DROP PROCEDURE IF EXISTS `GetAllDegrees`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `GetAllDegrees` (IN `inst_id` INT(11))  BEGIN
  select * 
  from degree 
  where institute_id=inst_id;
  END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `GetContactList`(IN `login_user` INT(11))
-BEGIN
+DROP PROCEDURE IF EXISTS `GetContactList`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `GetContactList` (IN `login_user` INT(11))  BEGIN
  SELECT * 
  FROM user
  JOIN contact
@@ -40,22 +42,22 @@ BEGIN
  WHERE user_id = login_user;
  END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `GetMsgList`(IN `from_id` INT(11), IN `login_user` INT(11))
-BEGIN
+DROP PROCEDURE IF EXISTS `GetMsgList`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `GetMsgList` (IN `from_id` INT(11), IN `login_user` INT(11))  BEGIN
  SELECT * 
  FROM chat
  WHERE (sent_from = from_id and sent_to = login_user) or (sent_from = login_user and sent_to = from_id);
  END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `Login`(IN `email` TEXT, IN `passwd` VARCHAR(32))
-BEGIN
+DROP PROCEDURE IF EXISTS `Login`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `Login` (IN `email` TEXT, IN `passwd` VARCHAR(32))  BEGIN
  SELECT * 
  FROM user
  WHERE email_id = email and password = passwd;
  END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `msg_counter`(IN `id` INT(11))
-BEGIN
+DROP PROCEDURE IF EXISTS `msg_counter`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `msg_counter` (IN `id` INT(11))  BEGIN
  SELECT * 
  FROM chat
  WHERE sent_to = id;
@@ -69,13 +71,15 @@ DELIMITER ;
 -- Table structure for table `article_tbl`
 --
 
+DROP TABLE IF EXISTS `article_tbl`;
 CREATE TABLE IF NOT EXISTS `article_tbl` (
-`a_id` int(10) unsigned NOT NULL,
+  `a_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   `loca_id` int(10) NOT NULL,
   `title` varchar(100) NOT NULL,
   `content` text NOT NULL,
   `status` char(10) NOT NULL,
-  `note` varchar(100) NOT NULL
+  `note` varchar(100) NOT NULL,
+  PRIMARY KEY (`a_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
@@ -92,8 +96,9 @@ INSERT INTO `article_tbl` (`a_id`, `loca_id`, `title`, `content`, `status`, `not
 -- Table structure for table `chat`
 --
 
+DROP TABLE IF EXISTS `chat`;
 CREATE TABLE IF NOT EXISTS `chat` (
-  `id` int(10) unsigned NOT NULL,
+  `id` int(10) UNSIGNED NOT NULL,
   `sent_to` int(11) NOT NULL,
   `sent_from` int(11) NOT NULL,
   `message` text NOT NULL,
@@ -119,6 +124,7 @@ INSERT INTO `chat` (`id`, `sent_to`, `sent_from`, `message`, `sent_date`) VALUES
 -- Table structure for table `contact`
 --
 
+DROP TABLE IF EXISTS `contact`;
 CREATE TABLE IF NOT EXISTS `contact` (
   `user_id` int(11) NOT NULL,
   `contact_id` int(11) NOT NULL
@@ -145,6 +151,7 @@ INSERT INTO `contact` (`user_id`, `contact_id`) VALUES
 -- Table structure for table `degree`
 --
 
+DROP TABLE IF EXISTS `degree`;
 CREATE TABLE IF NOT EXISTS `degree` (
   `degree_id` int(11) NOT NULL,
   `degree_name` varchar(50) NOT NULL,
@@ -170,10 +177,12 @@ INSERT INTO `degree` (`degree_id`, `degree_name`, `institute_id`) VALUES
 -- Table structure for table `facuties_tbl`
 --
 
+DROP TABLE IF EXISTS `facuties_tbl`;
 CREATE TABLE IF NOT EXISTS `facuties_tbl` (
-`faculties_id` int(10) unsigned NOT NULL,
+  `faculties_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   `faculties_name` varchar(50) NOT NULL,
-  `note` varchar(100) NOT NULL
+  `note` varchar(100) NOT NULL,
+  PRIMARY KEY (`faculties_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
@@ -190,6 +199,7 @@ INSERT INTO `facuties_tbl` (`faculties_id`, `faculties_name`, `note`) VALUES
 -- Table structure for table `has_degree`
 --
 
+DROP TABLE IF EXISTS `has_degree`;
 CREATE TABLE IF NOT EXISTS `has_degree` (
   `student_id` int(11) NOT NULL,
   `degree_id` int(11) NOT NULL,
@@ -216,6 +226,7 @@ INSERT INTO `has_degree` (`student_id`, `degree_id`, `verified`, `from_year`, `t
 -- Table structure for table `has_document`
 --
 
+DROP TABLE IF EXISTS `has_document`;
 CREATE TABLE IF NOT EXISTS `has_document` (
   `student_id` int(11) NOT NULL,
   `doc_id` int(11) NOT NULL,
@@ -229,6 +240,7 @@ CREATE TABLE IF NOT EXISTS `has_document` (
 -- Table structure for table `has_interest`
 --
 
+DROP TABLE IF EXISTS `has_interest`;
 CREATE TABLE IF NOT EXISTS `has_interest` (
   `student_id` int(11) NOT NULL,
   `interest` varchar(50) NOT NULL
@@ -248,6 +260,7 @@ INSERT INTO `has_interest` (`student_id`, `interest`) VALUES
 -- Table structure for table `has_job`
 --
 
+DROP TABLE IF EXISTS `has_job`;
 CREATE TABLE IF NOT EXISTS `has_job` (
   `student_id` int(11) NOT NULL,
   `job_id` int(11) NOT NULL
@@ -259,6 +272,7 @@ CREATE TABLE IF NOT EXISTS `has_job` (
 -- Table structure for table `has_skill`
 --
 
+DROP TABLE IF EXISTS `has_skill`;
 CREATE TABLE IF NOT EXISTS `has_skill` (
   `student_id` int(11) NOT NULL,
   `skill` varchar(50) NOT NULL
@@ -281,6 +295,7 @@ INSERT INTO `has_skill` (`student_id`, `skill`) VALUES
 -- Table structure for table `job`
 --
 
+DROP TABLE IF EXISTS `job`;
 CREATE TABLE IF NOT EXISTS `job` (
   `job_id` int(11) NOT NULL,
   `job_title` varchar(50) NOT NULL,
@@ -297,11 +312,13 @@ CREATE TABLE IF NOT EXISTS `job` (
 -- Table structure for table `location_tb`
 --
 
+DROP TABLE IF EXISTS `location_tb`;
 CREATE TABLE IF NOT EXISTS `location_tb` (
-`loca_id` int(10) unsigned NOT NULL,
+  `loca_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   `l_name` varchar(100) NOT NULL,
   `description` text NOT NULL,
-  `note` varchar(150) NOT NULL
+  `note` varchar(150) NOT NULL,
+  PRIMARY KEY (`loca_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
@@ -318,14 +335,16 @@ INSERT INTO `location_tb` (`loca_id`, `l_name`, `description`, `note`) VALUES
 -- Table structure for table `stu_score_tbl`
 --
 
+DROP TABLE IF EXISTS `stu_score_tbl`;
 CREATE TABLE IF NOT EXISTS `stu_score_tbl` (
-`ss_id` int(10) unsigned NOT NULL,
+  `ss_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   `stu_id` int(10) NOT NULL,
   `faculties_id` int(10) NOT NULL,
   `sub_id` int(10) NOT NULL,
   `miderm` float NOT NULL,
   `final` float NOT NULL,
-  `note` varchar(100) NOT NULL
+  `note` varchar(100) NOT NULL,
+  PRIMARY KEY (`ss_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=latin1;
 
 --
@@ -364,8 +383,9 @@ INSERT INTO `stu_score_tbl` (`ss_id`, `stu_id`, `faculties_id`, `sub_id`, `mider
 -- Table structure for table `stu_tbl`
 --
 
+DROP TABLE IF EXISTS `stu_tbl`;
 CREATE TABLE IF NOT EXISTS `stu_tbl` (
-`stu_id` int(10) unsigned NOT NULL,
+  `stu_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   `f_name` varchar(50) NOT NULL,
   `l_name` varchar(50) NOT NULL,
   `password` varchar(100) NOT NULL DEFAULT '1234',
@@ -376,7 +396,8 @@ CREATE TABLE IF NOT EXISTS `stu_tbl` (
   `phone` varchar(50) NOT NULL,
   `email` varchar(70) NOT NULL,
   `note` varchar(100) NOT NULL,
-  `img_url` varchar(255) NOT NULL DEFAULT 'images/dp.png	'
+  `img_url` varchar(255) NOT NULL DEFAULT 'images/dp.png	',
+  PRIMARY KEY (`stu_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
@@ -395,13 +416,15 @@ INSERT INTO `stu_tbl` (`stu_id`, `f_name`, `l_name`, `password`, `gender`, `dob`
 -- Table structure for table `sub_tbl`
 --
 
+DROP TABLE IF EXISTS `sub_tbl`;
 CREATE TABLE IF NOT EXISTS `sub_tbl` (
-`sub_id` int(10) unsigned NOT NULL,
+  `sub_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   `faculties_id` int(10) NOT NULL,
   `teacher_id` int(10) NOT NULL,
   `semester` varchar(10) NOT NULL,
   `sub_name` varchar(100) NOT NULL,
-  `note` varchar(100) NOT NULL
+  `note` varchar(100) NOT NULL,
+  PRIMARY KEY (`sub_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 --
@@ -423,8 +446,9 @@ INSERT INTO `sub_tbl` (`sub_id`, `faculties_id`, `teacher_id`, `semester`, `sub_
 -- Table structure for table `teacher_tbl`
 --
 
+DROP TABLE IF EXISTS `teacher_tbl`;
 CREATE TABLE IF NOT EXISTS `teacher_tbl` (
-`teacher_id` int(10) unsigned NOT NULL,
+  `teacher_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   `f_name` varchar(30) NOT NULL,
   `l_name` varchar(30) NOT NULL,
   `gender` char(10) NOT NULL,
@@ -436,7 +460,8 @@ CREATE TABLE IF NOT EXISTS `teacher_tbl` (
   `married` char(10) NOT NULL,
   `phone` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
-  `note` varchar(100) NOT NULL
+  `note` varchar(100) NOT NULL,
+  PRIMARY KEY (`teacher_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 --
@@ -456,34 +481,43 @@ INSERT INTO `teacher_tbl` (`teacher_id`, `f_name`, `l_name`, `gender`, `dob`, `p
 -- Table structure for table `user`
 --
 
+DROP TABLE IF EXISTS `user`;
 CREATE TABLE IF NOT EXISTS `user` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `f_name` varchar(30) DEFAULT NULL,
+  `l_name` varchar(30) DEFAULT NULL,
   `name` varchar(100) NOT NULL,
   `user_name` varchar(20) NOT NULL,
   `email_id` text NOT NULL,
   `password` varchar(32) NOT NULL,
   `contact_no` varchar(15) NOT NULL,
   `user_type` enum('student','institute','company') NOT NULL,
-  `img_url` varchar(255) NOT NULL DEFAULT 'images/dp.png'
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
+  `img_url` varchar(255) NOT NULL DEFAULT 'images/dp.png',
+  `gender` varchar(20) DEFAULT NULL,
+  `dob` varchar(30) DEFAULT NULL,
+  `pob` varchar(30) DEFAULT NULL,
+  `address` varchar(30) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `name`, `user_name`, `email_id`, `password`, `contact_no`, `user_type`, `img_url`) VALUES
-(1, 'Asad Ali', 'Asad', 'asad@gmail.com', 'asad', '03025855267', 'student', 'https://2.bp.blogspot.com/-oPwiFzGzO_o/V8lWeLItEiI/AAAAAAAADb4/tFg849jD-T0mCsPYvr8KrEEmTu3YZLMJACLcB/s1600/best-whatsapp-dp-quotes.jpg'),
-(2, 'mujeeb', 'mujeeb', 'mujeeb@gmail.com', 'asad', '0300-2222111', 'student', 'https://www.iconfinder.com/data/icons/freeline/32/account_friend_human_man_member_person_profile_user_users-256.png'),
-(5, 'Ajwad', 'ajwad.striker', 'ajwad@gmail.com', 'ajwad', '0301-1111111', 'company', 'images/dp.png'),
-(6, 'Random user', 'random', 'company@gmail.com', 'company', '0', 'company', 'images/dp.png'),
-(7, 'National University of Science and Technology, H-12, Islamabad', 'nust', 'admissions@nust.edu.pk', 'nust', '+92-51-90856878', 'institute', 'https://upload.wikimedia.org/wikipedia/en/thumb/2/22/NUST_Vector.svg/1026px-NUST_Vector.svg.png'),
-(8, 'University of Engineering and Technology, Lahore', 'uet.lahore', 'admissions@uet.edu.pk', 'uetlahore', '042-99029245', 'institute', 'https://upload.wikimedia.org/wikipedia/en/thumb/b/b0/University_of_Engineering_and_Technology_Lahore_logo.svg/1018px-University_of_Engineering_and_Technology_Lahore_logo.svg.png'),
-(9, 'Usman', 'baou.usman', 'usman@gmail.com', 'baou', '', 'student', 'images/dp.png'),
-(10, 'Mubeen Butt', 'mubeen', 'mubeen@gmail.com', 'mubeen', '', 'student', 'images/dp.png'),
-(11, 'Alex Nyabuto', 'alexnyabuto', 'alexnyabuto8@gmail.com', '12345678', '0711295523', 'student', 'images/dp.png'),
-(12, 'Janeffer', 'janeffer', 'janeffer@gmail.com', '12345678', '', 'student', 'images/dp.png'),
-(13, 'Rigan', 'rigan10', 'rigan10@gmail.com', '12345678', '0712456890', 'company', 'images/dp.png'),
-(14, 'Jane Kiende', 'jane10', 'kiende@gmail.com', '12345678', '2556666222', 'student', 'images/dp.png');
+INSERT INTO `user` (`id`, `f_name`, `l_name`, `name`, `user_name`, `email_id`, `password`, `contact_no`, `user_type`, `img_url`, `gender`, `dob`, `pob`, `address`) VALUES
+(1, NULL, NULL, 'Asad Ali', 'Asad', 'asad@gmail.com', 'asad', '03025855267', 'student', 'https://2.bp.blogspot.com/-oPwiFzGzO_o/V8lWeLItEiI/AAAAAAAADb4/tFg849jD-T0mCsPYvr8KrEEmTu3YZLMJACLcB/s1600/best-whatsapp-dp-quotes.jpg', NULL, NULL, NULL, NULL),
+(2, NULL, NULL, 'mujeeb', 'mujeeb', 'mujeeb@gmail.com', 'asad', '0300-2222111', 'student', 'https://www.iconfinder.com/data/icons/freeline/32/account_friend_human_man_member_person_profile_user_users-256.png', NULL, NULL, NULL, NULL),
+(5, NULL, NULL, 'Ajwad', 'ajwad.striker', 'ajwad@gmail.com', 'ajwad', '0301-1111111', 'company', 'images/dp.png', NULL, NULL, NULL, NULL),
+(6, NULL, NULL, 'Random user', 'random', 'company@gmail.com', 'company', '0', 'company', 'images/dp.png', NULL, NULL, NULL, NULL),
+(7, NULL, NULL, 'National University of Science and Technology, H-12, Islamabad', 'nust', 'admissions@nust.edu.pk', 'nust', '+92-51-90856878', 'institute', 'https://upload.wikimedia.org/wikipedia/en/thumb/2/22/NUST_Vector.svg/1026px-NUST_Vector.svg.png', NULL, NULL, NULL, NULL),
+(8, NULL, NULL, 'University of Engineering and Technology, Lahore', 'uet.lahore', 'admissions@uet.edu.pk', 'uetlahore', '042-99029245', 'institute', 'https://upload.wikimedia.org/wikipedia/en/thumb/b/b0/University_of_Engineering_and_Technology_Lahore_logo.svg/1018px-University_of_Engineering_and_Technology_Lahore_logo.svg.png', NULL, NULL, NULL, NULL),
+(9, NULL, NULL, 'Usman', 'baou.usman', 'usman@gmail.com', 'baou', '', 'student', 'images/dp.png', NULL, NULL, NULL, NULL),
+(10, NULL, NULL, 'Mubeen Butt', 'mubeen', 'mubeen@gmail.com', 'mubeen', '', 'student', 'images/dp.png', NULL, NULL, NULL, NULL),
+(11, NULL, NULL, 'Alex Nyabuto', 'alexnyabuto', 'alexnyabuto8@gmail.com', '12345678', '0711295523', 'student', 'images/dp.png', NULL, NULL, NULL, NULL),
+(12, NULL, NULL, 'Janeffer', 'janeffer', 'janeffer@gmail.com', '12345678', '', 'student', 'images/dp.png', NULL, NULL, NULL, NULL),
+(13, NULL, NULL, 'Rigan', 'rigan10', 'rigan10@gmail.com', '12345678', '0712456890', 'company', 'images/dp.png', NULL, NULL, NULL, NULL),
+(14, NULL, NULL, 'Jane Kiende', 'jane10', 'kiende@gmail.com', '12345678', '2556666222', 'student', 'images/dp.png', NULL, NULL, NULL, NULL),
+(15, 'Dennis', 'dennis', 'Dennis dennis', 'deb@gmail.com', 'deb@gmail.com', '1234', '074444444', 'student', 'images/dp.png', 'Male', '1995/8/9', 'kisii', '536');
 
 -- --------------------------------------------------------
 
@@ -491,14 +525,16 @@ INSERT INTO `user` (`id`, `name`, `user_name`, `email_id`, `password`, `contact_
 -- Table structure for table `users_tbl`
 --
 
+DROP TABLE IF EXISTS `users_tbl`;
 CREATE TABLE IF NOT EXISTS `users_tbl` (
-`u_id` int(10) unsigned NOT NULL,
+  `u_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   `username` varchar(50) NOT NULL,
   `password` varchar(30) NOT NULL,
   `type` char(10) NOT NULL,
   `note` varchar(100) NOT NULL,
-  `role` enum('teacher','admin') NOT NULL DEFAULT 'teacher'
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+  `role` enum('teacher','admin') NOT NULL DEFAULT 'teacher',
+  PRIMARY KEY (`u_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users_tbl`
@@ -508,114 +544,8 @@ INSERT INTO `users_tbl` (`u_id`, `username`, `password`, `type`, `note`, `role`)
 (1, 'admin', 'admin', 'creator', 'creator', 'admin'),
 (2, 'Alex', 'alex', 'creator', 'creator', 'teacher'),
 (3, 'jane', '1234', 'creator', 'creator', '');
+COMMIT;
 
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `article_tbl`
---
-ALTER TABLE `article_tbl`
- ADD PRIMARY KEY (`a_id`);
-
---
--- Indexes for table `facuties_tbl`
---
-ALTER TABLE `facuties_tbl`
- ADD PRIMARY KEY (`faculties_id`);
-
---
--- Indexes for table `location_tb`
---
-ALTER TABLE `location_tb`
- ADD PRIMARY KEY (`loca_id`);
-
---
--- Indexes for table `stu_score_tbl`
---
-ALTER TABLE `stu_score_tbl`
- ADD PRIMARY KEY (`ss_id`);
-
---
--- Indexes for table `stu_tbl`
---
-ALTER TABLE `stu_tbl`
- ADD PRIMARY KEY (`stu_id`);
-
---
--- Indexes for table `sub_tbl`
---
-ALTER TABLE `sub_tbl`
- ADD PRIMARY KEY (`sub_id`);
-
---
--- Indexes for table `teacher_tbl`
---
-ALTER TABLE `teacher_tbl`
- ADD PRIMARY KEY (`teacher_id`);
-
---
--- Indexes for table `user`
---
-ALTER TABLE `user`
- ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `users_tbl`
---
-ALTER TABLE `users_tbl`
- ADD PRIMARY KEY (`u_id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `article_tbl`
---
-ALTER TABLE `article_tbl`
-MODIFY `a_id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
---
--- AUTO_INCREMENT for table `facuties_tbl`
---
-ALTER TABLE `facuties_tbl`
-MODIFY `faculties_id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
---
--- AUTO_INCREMENT for table `location_tb`
---
-ALTER TABLE `location_tb`
-MODIFY `loca_id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `stu_score_tbl`
---
-ALTER TABLE `stu_score_tbl`
-MODIFY `ss_id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=29;
---
--- AUTO_INCREMENT for table `stu_tbl`
---
-ALTER TABLE `stu_tbl`
-MODIFY `stu_id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
---
--- AUTO_INCREMENT for table `sub_tbl`
---
-ALTER TABLE `sub_tbl`
-MODIFY `sub_id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
---
--- AUTO_INCREMENT for table `teacher_tbl`
---
-ALTER TABLE `teacher_tbl`
-MODIFY `teacher_id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
---
--- AUTO_INCREMENT for table `user`
---
-ALTER TABLE `user`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
---
--- AUTO_INCREMENT for table `users_tbl`
---
-ALTER TABLE `users_tbl`
-MODIFY `u_id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
